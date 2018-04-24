@@ -48,8 +48,8 @@ class App extends React.Component {
     
         
     return (
-      <div class="container">
-      <table class="table table-bordered table-hover">
+      <div className="container">
+      <table className="table table-bordered table-hover">
       <tbody>{this.state.data.map(function(item, key) {
              
                return (
