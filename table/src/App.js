@@ -31,7 +31,7 @@ class App extends React.Component {
   }
   componentDidMount() {
     $.ajax({
-       url: "http://jsonplaceholder.typicode.com/posts",
+       url: "https://jsonplaceholder.typicode.com/posts",
        type: "GET",
        dataType: 'json',
        ContentType: 'application/json',
@@ -41,7 +41,7 @@ class App extends React.Component {
        }.bind(this),
        error: function(jqXHR) {
          console.log(jqXHR);
-       }.bind(this)
+       }
     })
   }
   render() {
