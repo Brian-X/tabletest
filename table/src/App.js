@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import $ from "jquery";
+// import $ from "jquery";
+const $ = require('jquery');
+$.DataTable = require('datatables.net');
 
 // class App extends Component {
 //   render() {
@@ -49,7 +51,7 @@ class App extends React.Component {
         
     return (
       <div className="container">
-      <table className="tablestyle table sortable table-striped table-hover">
+      <table id="ipsumtable"  className="tablestyle table table-striped table-hover">
         <thead>
           <tr>
             <th>User</th>
@@ -74,6 +76,23 @@ class App extends React.Component {
     )
   }
 }
+
+// $(document).ready(function() {
+//     $.noConflict();
+//     var table = $('#ipsumtable').DataTable();
+// });
+$(document).ready(function() {
+    var table = $('#ipsumtable').DataTable( {
+        select: true
+    } );
+ 
+    table
+        .on( 'user-select', function ( e, dt, type, cell, originalEvent ) {
+            if ( $(originalEvent.target).index() === 0 ) {
+                e.preventDefault();
+            }
+        } );
+} );
 
 // ReactDOM.render(<App/>, document.getElementById('app'))
 
