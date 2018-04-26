@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import $ from "jquery";
 
@@ -49,20 +49,26 @@ class App extends React.Component {
         
     return (
       <div className="container">
-      <table className="table table-bordered table-hover">
-      <tbody>{this.state.data.map(function(item, key) {
-             
-               return (
-                  <tr key = {key}>
-                      <td>{item.userId}</td>
-                      <td>{item.id}</td>
-                      <td>{item.title}</td>
-                      <td>{item.body}</td>
-                  </tr>
-                )
-             
-             })}</tbody>
-       </table>
+      <table className="tablestyle table sortable table-striped table-hover">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Story</th>
+          </tr>
+        </thead>
+        <tbody>{this.state.data.map(function(item, key) {     
+          return (
+            <tr key = {key}>
+              <td>{item.userId}</td>
+                <td>{item.id}</td>
+                <td>{item.title}</td>
+                <td>{item.body}</td>
+              </tr>
+          )
+        })}</tbody>
+      </table>
 
        </div>
     )
